@@ -6,25 +6,18 @@ mongoose.connect('mongodb://localhost/ebidProducts', {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  Product.create({ name: 'small' })
+  // Product.create({ name: 'small' }) //to test
   console.log("---------------------- DB up")
 });
 
-//test if working
-
-productSchema = mongoose.Schema({
-  name: String
-});
-
-
+//"document" name is called product
 var Product = mongoose.model('list', productSchema);
-//document name is called product
-
-
-
 
 module.exports = Product;
 
+// productSchema = mongoose.Schema({
+//   name: String
+// });
 
 ///////////////////////////////////////
 /////// original code save if case stuff breaks

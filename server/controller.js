@@ -1,20 +1,23 @@
 // Controller here
 // complete building out the controller
-var Product = require('../db/')
-//{helpers} = require
-
+var helpers = require('../db/dbhelpers')
 const controller = {
   get: (req, res) => {
-    res.status(200).json('get request works')
-/*
-hit this with a get request
-can create seed here
-invoke helpers
-getProductsHelper().then((results)=>{
-  send results back to client
-  res.status.send(results)
-}
-*/
+    helpers.getProductsHelper()
+      .then((results) => {
+        res.status(200).json(`Successful Request, here are your results ${results}`)
+      })
+      .catch((err) => { console.log(err) })
+
+    /*
+    hit this with a get request
+    can create seed here
+    invoke helpers
+    getProductsHelper().then((results)=>{
+      send results back to client
+      res.status.send(results)
+    }
+    */
   },
 
   post: (req, res) => {
@@ -44,7 +47,7 @@ updateProductHelper
   },
   delete: (req, res) => {
     res.status(200).json('delete request works')
-     /*
+    /*
 invoke deleteProductHelper
 
 */
