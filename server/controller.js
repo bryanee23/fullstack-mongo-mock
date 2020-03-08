@@ -9,20 +9,23 @@ const controller = {
         res.status(200).json(`${results}`)
       })
       .catch((err) => { console.log(err) })
-
-    /*
-    hit this with a get request
-    can create seed here
-    invoke helpers
-    getProductsHelper().then((results)=>{
-      send results back to client
-      res.status.send(results)
-    }
-    */
   },
 
   post: (req, res) => {
-    res.status(200).json('post request works')
+    const item =
+    {
+      item: req.body.item,
+      min_cost: req.body.min_cost,
+      curr_bid: req.body.curr_bid,
+      ends_in: req.body.ends_in,
+      image: req.body.image,
+    }
+
+    helpers.postProductsHelper(item)
+    .then(() => {
+      res.status(200).json(`${item.item} inserted`)
+    })
+    .catch((err) => { console.log(err) })
     //console.log(req.body)
     //use req.body
     //use req.body as arguments to call deHelpers
@@ -47,16 +50,22 @@ updateProductHelper
 */
   },
   delete: (req, res) => {
+    const productID = req.params
+
     helpers.deleteProductHelper()
     .then(() => {
       res.status(200).json('delete request works')
     })
     .catch((err) => { console.log(err) })
+  },
+  deleteAll: (req, res) => {
+    const productID = req.params
 
-    /*
-invoke deleteProductHelper
-//req.params
-*/
+    helpers.deleteAllProductHelper()
+    .then(() => {
+      res.status(200).json('delete request works')
+    })
+    .catch((err) => { console.log(err) })
   }
 }
 

@@ -13,4 +13,8 @@ router
   .put(controller.put)
   .delete(controller.delete)
 
+router
+  .route('/products/deleteAll')
+  .delete(controller.deleteAll)
+
 module.exports = router
