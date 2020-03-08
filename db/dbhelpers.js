@@ -7,8 +7,8 @@ const Product = require('./index.js'); //import from index to invoke documents
 const helpers = {
   getProductsHelper: () => Product.find({}), // allows me to use promises on controller side
   postProductsHelper: (obj) => Product.create(obj),
-  // updateProductHelper: () => (/* (something).find()*/ ), // allows me to use promises on controller side
-  deleteProductHelper: () => Product.deleteMany({}),
+  updateProductHelper: (filter, update) => Product.findOneAndUpdate(filter, update),
+  deleteProductHelper: (obj) => Product.deleteOne(obj),
   deleteAllProductHelper: () => Product.deleteMany({}),
 };
 

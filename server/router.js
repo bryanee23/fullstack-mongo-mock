@@ -3,17 +3,17 @@
 const router = require('express').Router();
 const controller = require('./controller.js');
 
-router
+router //get all and post one
   .route('/products')
   .get(controller.get)
   .post(controller.post)
 
-router
+router // update delete one
   .route('/products/:_id')
   .put(controller.put)
   .delete(controller.delete)
 
-router
+router //delete all
   .route('/products/deleteAll')
   .delete(controller.deleteAll)
 
