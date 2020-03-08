@@ -15,7 +15,7 @@ export default class App extends React.Component {
   }
 
   render(){
-  
+
     return(
       <div>
         <div>
@@ -24,14 +24,17 @@ export default class App extends React.Component {
         </div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
+            SEARCH GOES HERE --DO THIS LAST
             <Search />
           </div>
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
+            PRODUCT VIEWER GOES HERE
             <ProductViewer />
           </div>
           <div className="col-md-5 product-list-container">
+          MAP OVER PRODUCT LIST, SEND OVER ARRAY
             <ProductList  />
           </div>
         </div>
