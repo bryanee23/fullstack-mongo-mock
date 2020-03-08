@@ -8,7 +8,7 @@ const helpers = {
   getProductsHelper: () => Product.find({}), // allows me to use promises on controller side
   // postProductsHelper: () => (/* (something).find()*/ ), // allows me to use promises on controller side
   // updateProductHelper: () => (/* (something).find()*/ ), // allows me to use promises on controller side
-  // deleteProductHelper: () => (/* (something).find()*/ ), // deleteOne()// allows me to use promises on controller side
+  deleteProductHelper: () => Product.deleteMany({}),
 };
 
 module.exports = helpers

@@ -1,4 +1,4 @@
-const Product = require('./'); //this file path is incorrect
+const Product = require('./index'); //this file path is incorrect
 var mongoose = require('mongoose');
 
 // Fill in the definition of insertMockData so that when
@@ -29,12 +29,12 @@ const createProducts = () => {
   }
   return productsArr
 }
-
 const insertMockData = function() {
   // Complete me please
   // NOTE: DO NOT invoke this function as part of your
   // server code - it is meant to only be run once so that
   // you have access to data to work with
-
+  // Product.insertMany(createProduct())
 };
 
+module.exports = insertMockData;

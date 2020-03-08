@@ -16,7 +16,6 @@ db.once('open', function() {
   //   }
   // ) //to test
 
-
   console.log("---------------------- DB up")
 });
 

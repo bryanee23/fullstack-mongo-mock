@@ -1,11 +1,12 @@
-// Controller here
-// complete building out the controller
 var helpers = require('../db/dbhelpers')
+// var insertMockData = require('../db/seed')
+// insertMockData()
+
 const controller = {
   get: (req, res) => {
     helpers.getProductsHelper()
       .then((results) => {
-        res.status(200).json(`Successful Request, here are your results ${results}`)
+        res.status(200).json(`${results}`)
       })
       .catch((err) => { console.log(err) })
 
@@ -46,10 +47,15 @@ updateProductHelper
 */
   },
   delete: (req, res) => {
-    res.status(200).json('delete request works')
+    helpers.deleteProductHelper()
+    .then(() => {
+      res.status(200).json('delete request works')
+    })
+    .catch((err) => { console.log(err) })
+
     /*
 invoke deleteProductHelper
-
+//req.params
 */
   }
 }
