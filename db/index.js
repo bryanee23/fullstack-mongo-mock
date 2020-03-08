@@ -6,7 +6,17 @@ mongoose.connect('mongodb://localhost/ebidProducts', {useNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  // Product.create({ name: 'small' }) //to test
+  // Product.create(
+  //   {
+  //     item: "socks",
+  //     min_cost: 2,
+  //     curr_bid: 44,
+  //     ends_in: 43,
+  //     image: "imgURL",
+  //   }
+  // ) //to test
+
+
   console.log("---------------------- DB up")
 });
 
