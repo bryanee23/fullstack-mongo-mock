@@ -9,4 +9,4 @@ const controller = {
   delete: (req, res) => {}
 }
 
-module.exports = controller
+module.exports = controller 
