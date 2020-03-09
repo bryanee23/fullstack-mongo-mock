@@ -12,29 +12,51 @@ export default class App extends React.Component {
     this.state = {
       /*insert schema here */
       collection: [],
+      firstItem: "",
+      currentBid: '',
+
     }
-    //bind my functions here
+    this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
 
   }
-  //handlechange
-  //handlesubmit
-  //handleclick
+
+  handleSubmit(event) {
+    // if (this.props.item.curr_bid > )
+    this.handleInputChange()
+    // event.preventDefault();
+  }
+
+  handleInputChange(event) {
+    const value = event.target.value;
+    const name = event.target.name;
+
+    this.setState({
+      currentBid: parseInt(value)
+    });
+  }
+
+  handleClick(event) {
+    this.setState({
+      firstItem: event,
+    });
+  }
 
   componentDidMount() {
     this.get()
   }
-  //componentDidMount
 
   get() {
     axios.get('/ebay/products')
-    .then((res)=>{
-      // console.log(res.data[0]['item'], 'getaxios')
-      this.setState({
-        collection: res.data,
-        firstItem: res.data[0],
+      .then((res) => {
+        // console.log(res.data[0]['item'], 'getaxios')
+        this.setState({
+          collection: res.data,
+          firstItem: res.data[0]
+        })
       })
-    })
-    .catch((err)=>{console.log(err)})
+      .catch((err) => { console.log(err) })
 
   }
   //axios get request, change my set state to include array
@@ -54,11 +76,10 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            PRODUCT VIEWER GOES HERE
-            <ProductViewer item={this.state.firstItem}/>
+            <ProductViewer item={this.state.firstItem} handleSubmit={this.handleSubmit}/>
           </div>
           <div className="col-md-5 product-list-container">
-            <ProductList collection={this.state.collection}/>
+            <ProductList collection={this.state.collection} handleClick={this.handleClick} />
           </div>
         </div>
       </div>
