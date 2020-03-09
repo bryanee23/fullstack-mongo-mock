@@ -23,9 +23,9 @@ export default class App extends React.Component {
   }
 
   handleSubmit(event) {
-    // if (this.props.item.curr_bid > )
-    this.handleInputChange()
     // event.preventDefault();
+    this.handleInputChange()
+    // if (this.props.item.curr_bid > )
   }
 
   handleInputChange(event) {
@@ -34,7 +34,7 @@ export default class App extends React.Component {
 
     this.setState({
       currentBid: parseInt(value)
-    });
+    }, ()=>{console.log(this.state)});
   }
 
   handleClick(event) {
@@ -76,7 +76,7 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer item={this.state.firstItem} handleSubmit={this.handleSubmit}/>
+            <ProductViewer item={this.state.firstItem} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange}/>
           </div>
           <div className="col-md-5 product-list-container">
             <ProductList collection={this.state.collection} handleClick={this.handleClick} />
