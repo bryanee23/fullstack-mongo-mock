@@ -18,8 +18,10 @@ export default class App extends React.Component {
     this.changeView = this.changeView.bind(this)
   }
 
-  changeView() {
-    //clickhandler
+  changeView(item) {
+    this.setState({
+      viewer: item,
+    })
   }
   getProducts() {
     let viewerIndex = 0
@@ -49,7 +51,10 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer item={this.state.viewerIndex} /*updated item after bid*/ />
+            <ProductViewer
+            item={this.state.viewerIndex}
+            update={this.getProducts}
+            />
           </div>
           <div className="col-md-5 product-list-container">
             <ProductList
