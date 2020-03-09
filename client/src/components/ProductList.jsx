@@ -3,12 +3,14 @@ import Products from './Products';
 
 const ProductList = (props) => {
   //list, changeView
-  {_id, item, } = props.list
    return(
     <div className='product-list'>
-      list
+    {props.list.map((obj, index)=(
+      <Products item={obj} key={index} changeView={props.changeView}/>
+    ))}
     </div>
   )
 }
 
 export default ProductList
+
