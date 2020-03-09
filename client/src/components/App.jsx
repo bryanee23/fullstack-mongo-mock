@@ -18,7 +18,7 @@ export default class App extends React.Component {
     this.changeView = this.changeView.bind(this)
   }
 
-  changeView(){
+  changeView() {
     //clickhandler
   }
   getProducts() {
@@ -49,10 +49,13 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer item={this.state.viewerIndex} /*updated item after bid*//>
+            <ProductViewer item={this.state.viewerIndex} /*updated item after bid*/ />
           </div>
           <div className="col-md-5 product-list-container">
-            <ProductList list={this.state.list.slice(0,10) changeView={this.changeView}}/>
+            <ProductList
+              list={this.state.list.slice(0, 10)
+              changeView={this.changeView}}
+            />
           </div>
         </div>
       </div>
