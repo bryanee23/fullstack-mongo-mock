@@ -30,13 +30,17 @@ const createProducts = () => {
   return productsArr
 }
 
-const insertMockData = function(seed) {
+const insertMockData = function() {
   // Complete me please
   // NOTE: DO NOT invoke this function as part of your
   // server code - it is meant to only be run once so that
   // you have access to data to work with
-  Product.insertMany(seed)
+  Product.insertMany(createProducts())
+  //map over each seed,
+
+
 };
 
-const seed = createProducts()
-insertMockData(seed)
+
+insertMockData()
+

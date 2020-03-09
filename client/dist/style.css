@@ -1,10 +1,11 @@
 @import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
 
 body {
-  background: #f1f1f1;
+  background: aliceblue;
   padding-left: 5%;
   padding-right: 5%
 }
+
 
 .navbar {
   background: #fff;
@@ -41,17 +42,22 @@ body {
 
 .main-container {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
+  border: 2px solid blue;
+  padding: 8px;
 }
 
 .product-viewer-container {
-  width:70%
+  width:70%;
+  border: 2px solid rgb(25, 144, 173);
+  padding: 8px;
 }
 
 .product-viewer {
   /* margin-left: 20px; */
   margin-right: 20px;
-
+  border: 2px solid rgb(25, 144, 173);
+  padding: 8px;
 }
 
 .product-viewer-details {
@@ -60,10 +66,13 @@ body {
   border: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
   margin-top: 10px;
+
 }
 
 .product-list-container {
-  width:30%
+  width:30%;
+  border: 2px solid rgb(25, 144, 173);
+  padding: 8px;
 }
 
 .product-list {
@@ -121,8 +130,9 @@ body {
   padding-left: 20px;
 }
 
-h5 {
-  border: 2px solid red;
+h1 {
+  border: 2px solid white;
+  font-family: 'Courier New', Courier, monospace;
   text-align: center;
   padding: 10px;
 }

@@ -7,22 +7,20 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   // Product.create(
-    // {
-    //   item: "socks",
-    //   min_cost: 2,
-    //   curr_bid: 44,
-    //   ends_in: 43,
-    //   image: "imgURL",
-    // }
+  //   {
+  //     item: "socks",
+  //     min_cost: 2,
+  //     curr_bid: 44,
+  //     ends_in: 43,
+  //     image: "imgURL",
+  //   }
   // ) //to test
-
   console.log("---------------------- DB up")
 });
 
 var Product = mongoose.model('list', productSchema);
 
 module.exports = Product;
-
 const OGcode ={
 
   /*OG CODE

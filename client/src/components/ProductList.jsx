@@ -1,19 +1,19 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import Products from './Products';
 
-const ProductList = () => {
-   return(
+const ProductList = ({ collection }) => {
+  return (
     <div className='product-list'>
-      {/* this is where you'll map
-
-{      props.map((obj, index)=>(
+      {collection.map((obj, index) => (
         <div>
-        <products obj={obj} key={index}/>
+          <Products obj={obj} key={index} />
         </div>
 
       ))}
 
-      */}
+
     </div>
   )
 }

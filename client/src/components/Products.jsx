@@ -1,10 +1,16 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Products = (/*props or desctructured*/) => {
-   return(
+
+const Products = ({ obj, index }) => {
+  return (
     <div className='product-list-entry'>
-      {/* {obj.(value)}
-       */}
+      <div  className='product-list-entry-detail'>
+        <h5>
+        {obj.item}
+        </h5>
+        <img className='listimages' src={obj.image}></img>
+      </div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ router // update delete one
   .delete(controller.delete)
 
 router //delete all
-  .route('/products/deleteAll')
+  .route('/products/')
   .delete(controller.deleteAll)
 
 module.exports = router

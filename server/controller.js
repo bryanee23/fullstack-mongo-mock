@@ -1,12 +1,10 @@
 var helpers = require('../db/dbhelpers')
-// var insertMockData = require('../db/seed')
-// insertMockData()
 
 const controller = {
   get: (req, res) => {
     helpers.getProductsHelper()
       .then((results) => {
-        res.status(200).json(`${results}`)
+        res.status(200).json(results)
       })
       .catch((err) => { console.log(err) })
   },
@@ -39,7 +37,7 @@ const controller = {
       ends_in: req.body.ends_in,
       image: req.body.image,
     }
-    
+
     helpers.updateProductHelper(filter, update)
     .then((results) => {
       res.status(200).json('put request works')
@@ -58,7 +56,6 @@ const controller = {
   },
 
   deleteAll: (req, res) => {
-    const productID = req.params
 
     helpers.deleteAllProductHelper()
     .then(() => {
