@@ -6,17 +6,37 @@ import Search from './Search';
 import axios from 'axios';
 
 export default class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-
+      viewer: {},
+      list: [],
+      item: '',
+      min_cost: null,
+      image: '',
     }
-
+    this.changeView = this.changeView.bind(this)
   }
 
-  render(){
-  
-    return(
+  changeView(){
+    //clickhandler
+  }
+  getProducts() {
+    let viewerIndex = 0
+
+    axios.get('/ebay/products')
+      .then((data) => {
+        this.setState({
+          viewer: data.data[viewerIndex],
+          list: data.data
+        })
+      })
+      .catch(err => console.log(err))
+  }
+
+  render() {
+
+    return (
       <div>
         <div>
           <h1>EBID</h1>
@@ -29,10 +49,10 @@ export default class App extends React.Component {
         </nav>
         <div className="row main-container">
           <div className="col-md-7 product-viewer-container">
-            <ProductViewer />
+            <ProductViewer item={this.state.viewerIndex} /*updated item after bid*//>
           </div>
           <div className="col-md-5 product-list-container">
-            <ProductList  />
+            <ProductList list={this.state.list.slice(0,10) changeView={this.changeView}}/>
           </div>
         </div>
       </div>
